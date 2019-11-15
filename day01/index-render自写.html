@@ -1,0 +1,64 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-27 10:57:15
+ * @LastEditTime: 2019-09-27 11:47:50
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 200px;
+            height: 200px;
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'></div>
+    <script>
+        //生成虚拟dom
+        function createElement(tag, props = {}, children = []) {
+            return {
+                tag,
+                props,
+                children
+            }
+        }
+        var p = createElement('p', { class: 'e' }, '1706E')
+        var div = createElement('div', { class: 'demo', title: '测试' }, [p])
+        console.log(div)
+        // 渲染函数:参数、返回值、谁调用、作用域、功能
+        function render(vnode, el) {
+            // 递归函数
+            function getEl(vnode) {
+                // 根据vnode 生成dom
+                let { tag, props, children } = vnode
+                let div = document.createElement(tag)
+                //加属性
+                for (let key in props) {
+                    div.setAttribute(key, props[key])
+                }
+                // 加children 注意children是字符串还是数组 
+                typeof children === 'string'? div.innerHTML=children:children.forEach(item => {
+                        div.appendChild(getEl(item))
+                    })
+
+                return div
+            }
+            let div = getEl(vnode)
+            el.appendChild(div)
+        }
+        render(div, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

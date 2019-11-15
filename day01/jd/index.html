@@ -1,0 +1,115 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-27 16:46:17
+ * @LastEditTime: 2019-09-27 18:48:02
+ * @LastEditors: Please set LastEditors
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src='../js/babel.js'></script>
+    <script src='../js/react.js'></script>
+    <script src='../js/reactdom.js'></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+    let data=[
+        {
+            value:'家用电器',
+            data:{
+                pic:'1.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器1',
+            data:{
+                pic:'2.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器2',
+            data:{
+                pic:'3.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器3',
+            data:{
+                pic:'4.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        }
+    ]
+   
+    // 创建子组件-TabTile
+    // function TabTitle(props) {
+    //     let {list}=props
+    //     console.log(list)
+    //     return (
+    //         <div className='tabbar'>
+    //             {
+    //                 list.map((item,index)=><span key={index}>{item.value}</span>)
+    //             }
+    //         </div>
+    //     )
+    // }
+    //创建子组件-TabItem
+    function TabItem(props) {
+        console.log(props)
+        let {pic,title,list}=props.data
+        return (
+            <div className='item'>
+                <img src={`./img/${pic}`} alt=""/>
+                <p>{title}</p>
+                <ul>
+                {
+                   list.map((item,index)=><li key={index}>{item}</li>) 
+                }
+                </ul>
+            </div>
+        )
+    }
+    // 创建父组件- Tab
+    function Tab(props) {
+        let {list}=props
+        let currentIndex=0
+        return(
+            <div className='tabbox'>
+                <div className='tabbar'>
+                    {
+                        list.map((item,index)=><span key={index} onClick={
+                            ()=>{
+                                alert(index)
+                                currentIndex=index
+                            }
+                        }>{item.value}</span>)
+                    }
+                </div>
+                <TabItem data={list[currentIndex].data}/>
+            </div>
+        )
+    }
+    
+ReactDOM.render(<Tab list={data}/>,document.getElementById('app'))
+  
+    </script>
+</body>
+
+</html>

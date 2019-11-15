@@ -1,0 +1,56 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-27 15:55:32
+ * @LastEditTime: 2019-09-27 16:37:01
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/reactdom.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <button onclick="alert(111)">点击</button>
+    <div id='app'></div>
+    <script type='text/babel'>
+
+
+// 创建button组件--函数式组件，以自定义标签的形式引用
+
+      function Btn(props) {
+          console.log(props)
+          return <button>{props.title}</button>
+      }
+
+
+
+        let list=['苹果','香蕉','栗子']
+        let div=(
+            <div className='demo'>
+            <p onClick={()=>{console.log(event)}}>文字</p>
+            <img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K'/>
+            <ul>
+               {
+                list.map((item,index)=><li key={index}>{item}</li>)
+               }
+            </ul>
+            <img src="./qq.png" alt=""/>
+            <Btn title='上传'/>
+            <Btn title='清空'/>
+        </div>
+        )
+        console.log(div)
+        ReactDOM.render(div,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

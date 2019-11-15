@@ -1,0 +1,110 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-28 10:34:49
+ * @LastEditTime: 2019-09-28 10:58:15
+ * @LastEditors: Please set LastEditors
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/reactdom.js"></script>
+    <script src="./js/babel.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script type='text/babel'>
+        let data=[
+        {
+            value:'家用电器',
+            data:{
+                pic:'1.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器1',
+            data:{
+                pic:'2.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器2',
+            data:{
+                pic:'3.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        },
+        {
+            value:'家用电器3',
+            data:{
+                pic:'4.jpg',
+                title:'家电十一欢乐送',
+                list:['空调家装节','冰洗嘉年华','潮流小店开学季','电视影音会场']
+            }
+        }
+    ]
+    // tabBar
+    function  TabBar(props) {
+        return (
+            <div>
+            {
+                data.map((item,index)=><span key={index} onClick={()=>{
+
+                    console.log(index)
+                }}>{item.value}</span>)
+            }
+            </div>
+        )
+    }
+    // tabContent
+    function TabContent(params) {
+        console.log(params)
+        return (
+            <div className='con'>
+                <img src="./img/1.jpg" alt=""/>
+                <div className='right'>
+                    <p>富士康家阿拉基</p>
+                    <ul>
+                        <li>qwqq</li>
+                        <li>qwqq</li>
+                    </ul>
+                </div>
+            </div>
+        )
+    }
+    //父盒子
+    function Tab(props) {
+        let currentIndex=0
+        return (
+            <div className='tab'>
+                <div>
+            {
+                data.map((item,index)=><span key={index} onClick={()=>{
+
+                    console.log(index)
+                    currentIndex=index
+                    console.log(currentIndex)
+                }}>{item.value}</span>)
+            }
+            </div>
+                <TabContent data={data[currentIndex]}/>
+            </div>
+        )
+    }
+    // 挂载 渲染
+    ReactDOM.render(<Tab/>,document.getElementById('app'))
+    </script>
+</body>
+</html>

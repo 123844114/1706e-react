@@ -1,0 +1,82 @@
+[{
+    "name":"不限",
+    "type":"buxian"
+},
+    {
+        "id": 0,
+        "name": "芝心",
+        "type": "zhixin",
+        "list": [
+            {
+                "title": "榴莲桃桃比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/302_243726.jpg",
+                "desc": "新品",
+                "price": 79.0,
+                "pack": "普通包装",
+                "type": "芝心"
+            },
+            {
+                "title": "黄金夏威夷风光比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/23_3088.jpg",
+                "desc": "",
+                "price": 84.0,
+                "pack": "普通包装",
+                "type": "芝心"
+            },
+            {
+                "title": "超级至尊比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/3_348.JPG",
+                "desc": "招牌",
+                "price": 94.0,
+                "pack": "普通包装",
+                "type": "芝心"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "薄底",
+        "type": "bodi",
+        "list": [
+            {
+                "title": "海鲜至尊比萨 (薄底)",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/3_348.JPG",
+                "desc": "招牌",
+                "price": 80.0,
+                "pack": "普通包装",
+                "type": "薄底"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "铁盘",
+        "type": "tiepan",
+        "list": [ 
+            {
+                "title": "新奥尔良风情烤肉比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/182_92284.jpg",
+                "desc": "新品",
+                "price": 73.0,
+                "pack": "普通包装",
+                "type": "铁盘"
+            },
+            {
+                "title": "海鲜至尊比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/3_365.JPG",
+                "desc": "招牌",
+                "price": 114.0,
+                "pack": "大装",
+                "type": "铁盘"
+            },
+            {
+                "title": "北京潮鸭比萨",
+                "img": "https://img.4008123123.com/resource/VersionP/phdi/3_361.JPG",
+                "desc": "",
+                "price": 108.0,
+                "pack": "大装",
+                "type": "铁盘"
+            }
+        ]
+    }
+]

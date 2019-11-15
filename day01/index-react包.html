@@ -1,0 +1,33 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-27 14:59:55
+ * @LastEditTime: 2019-09-27 15:45:43
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+    <script src="./js/react.js"></script>
+    <script src="./js/reactdom.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let list=['苹果','香蕉','栗子']
+        let lis=list.map((item,index)=>{
+            return React.createElement('li',{key:index},item)
+        })
+        let ul=React.createElement('ul',{className:'list',key:2},lis)
+        let p=React.createElement('p',{className:'txt',key:1},['文字'])
+        let div= React.createElement('div',{className:'demo',id:'demo'},[p,ul])
+        ReactDOM.render(div,document.getElementById('app'))
+    </script>
+</body>
+</html>

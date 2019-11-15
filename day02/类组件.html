@@ -1,0 +1,61 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-28 11:00:59
+ * @LastEditTime: 2019-09-28 11:39:14
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/reactdom.js"></script>
+    <script src="./js/babel.js"></script>
+</head>
+
+<body>
+    <div id='app'></div>
+    <script type="text/babel">
+//    类组件 state状态--保存自身数据 props 外部传进来的数据
+    class Demo extends React.Component{
+        // constructor(){
+        //     super() //必须显示调用super
+        //     this.state={
+        //         msg:'1706e'
+        //     }
+        // }
+        state={
+            msg:'1706e'
+        }
+        //定义函数,与bind传参的顺序
+        // clickFn(v){
+        //     console.log(v)
+        //     this.setState({
+        //         msg:'helloworld'
+        //     })
+        // }
+        clickFn=()=>{
+            console.log(this)
+            // this.setState({
+            //     msg:'helloworld'
+            // })
+        }
+        render(){
+          return (
+              <div>
+              <button onClick={this.clickFn}>change</button>
+              <p>{this.state.msg}</p>
+              </div>
+          )
+        }
+    }
+    ReactDOM.render(<Demo/>,document.getElementById('app'))
+   </script>
+</body>
+
+</html>

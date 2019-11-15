@@ -1,0 +1,150 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-28 15:09:23
+ * @LastEditTime: 2019-09-28 15:41:19
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/reactdom.js"></script>
+    <script src="./js/babel.js"></script>
+    <style lang="">
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type='text/babel'>
+        class Tab extends React.Component {
+            constructor(){
+                super()
+                this.state = {
+                currentIndex:0,//当前选中项下标
+                data: [
+                    {
+                        value: '家用电器',
+                        data: {
+                            pic: '1.jpg',
+                            title: '家电十一欢乐送',
+                            list: ['空调家装节', '冰洗嘉年华', '潮流小店开学季', '电视影音会场']
+                        }
+                    },
+                    {
+                        value: '家用电器1',
+                        data: {
+                            pic: '2.jpg',
+                            title: '家电十一欢乐送',
+                            list: ['空调家装节', '冰洗嘉年华', '潮流小店开学季', '电视影音会场']
+                        }
+                    },
+                    {
+                        value: '家用电器2',
+                        data: {
+                            pic: '3.jpg',
+                            title: '家电十一欢乐送',
+                            list: ['空调家装节', '冰洗嘉年华', '潮流小店开学季', '电视影音会场']
+                        }
+                    },
+                    {
+                        value: '家用电器3',
+                        data: {
+                            pic: '4.jpg',
+                            title: '家电十一欢乐送',
+                            list: ['空调家装节', '冰洗嘉年华', '潮流小店开学季', '电视影音会场']
+                        }
+                    }
+                ]
+            }
+                }
+            
+            
+            // handleClick(index){
+            //     this.setState({
+            //         currentIndex:index
+            //     })
+            // }
+            handleClick=(index)=>{
+                console.log(this)
+                this.setState({
+                    currentIndex:index
+                })
+            }
+            render() {
+                let {data,currentIndex}=this.state
+                return (
+                    <div className='wrapper'>
+                    <h1 style={{color:'red',fontSize:'18px'}}> 京东tab</h1>
+                        <p className='tabbar'>
+                            {
+                                data.map((item, index) => {
+                                    return <span key={index} className={currentIndex===index?'active':null} onClick={()=>{this.handleClick(index)}}>{item.value}</span>
+                                })
+                            }
+                        </p>
+                         <TabContent type={data[currentIndex].data}></TabContent>
+                    </div>
+                )
+            }
+        }
+
+       
+        
+        function TabContent(props) {
+            // console.log(props)
+            let {pic,list,title} = props.type
+            return (
+                <div className='con'>
+                    <img src={`./img/${pic}`} alt="" />
+                    <div className='right'>
+                        <p>{title}</p>
+                        <ul>
+                            {
+                                list.map((item,index)=><li key={index}>{item}</li>)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            )
+        }
+
+
+       class Toggle extends React.Component{
+           state={
+               flag:false
+           }
+           changeFn=()=>{
+               this.setState({
+                   flag:!this.state.flag
+               })
+           }
+           render(){
+               let {flag}=this.state
+               return (
+                   <div>
+                    <button onClick={this.changeFn}>切换</button>
+                    {
+                        flag?<span>1706e</span>:<span>1706e优秀</span>
+                    
+                    }
+                    
+                   </div>
+               )
+           }
+       }
+
+        ReactDOM.render(<Toggle />,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

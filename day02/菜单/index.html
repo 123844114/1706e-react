@@ -1,0 +1,107 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-09-28 13:37:01
+ * @LastEditTime: 2019-09-28 14:11:13
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../day01/js/babel.js"></script>
+    <script src="../day01/js/react.js"></script>
+    <script src="../day01/js/reactdom.js"></script>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li>
+                <h3>水果</h3>
+                <ul>
+                    <li>苹果</li>
+                    <li>苹果</li>
+                </ul>
+            </li>
+            <li></li>
+        </ul>
+    </div>
+    <script type='text/babel'>
+        let data=[
+            {
+                value:'家电',
+                list:['洗衣机','电冰箱'],
+                show:false
+            },
+            {
+                value:'蔬菜',
+                list:['大白菜','胡萝卜'],
+                show:false
+            },
+            {
+                value:'水果',
+                list:['苹果','香蕉'],
+                show:false
+            }
+        ]
+    class Demo extends React.Component{
+        state={
+            data:[
+            {
+                value:'家电',
+                list:['洗衣机','电冰箱'],
+                show:false
+            },
+            {
+                value:'蔬菜',
+                list:['大白菜','胡萝卜'],
+                show:false
+            },
+            {
+                value:'水果',
+                list:['苹果','香蕉'],
+                show:false
+            }
+        ]
+        }
+        clickFn(index){
+            this.state.data[index].show=!this.state.data[index].show
+            this.setState(this.state)
+        }
+        render(){
+            let {data}=this.state
+            return (
+                <ul className='list'>
+                {
+                    data.map((item,index)=>{
+                        return (
+                            <li key={index}>
+                            <h3 onClick={this.clickFn.bind(this,index)}>{item.value}</h3>
+                            <ul className='down' style={{display:item.show?'block':'none'}}>
+                            {
+                                item.list.map((item,index)=>{
+                                    return <li key={index}>{item}</li>
+                                })
+                            }
+                            </ul>
+                            </li>
+                        )
+                    })
+                    
+                }</ul>
+            )
+        }
+    }
+    ReactDOM.render(<Demo/>,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

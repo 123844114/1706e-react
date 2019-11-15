@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+.tab{
+    width: 1200px
+}
+.tabbar{
+    span{
+        width: 100px;
+        height: 40px;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px;
+        &.active{
+            background: red
+        }
+    }
+}
+.tablist{
+    display: flex;
+}
+.tabitem{
+    margin: 10px;
+    border: 1px solid red;
+    text-align: center;
+    img{
+        width: 80%
+    }
+    button{
+
+    }
+}
+.dialog{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0, 0, .3);
+    .body{
+        width: 400px;
+        height: 300px;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -200px;
+        margin-top: -150px;
+    }
+}
+
+// bscroll
+.item{
+    height: 300px;
+    border-bottom: 2px solid red;
+    img{
+        width: 100px;
+        height: 100px;
+    }
+}
